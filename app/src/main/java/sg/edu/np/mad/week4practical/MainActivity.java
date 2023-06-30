@@ -20,7 +20,7 @@ import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
-    String TAG = "RecyclerVieww";
+    String TAG = "RecyclerView";
     ArrayList<myObject> myObject_list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
