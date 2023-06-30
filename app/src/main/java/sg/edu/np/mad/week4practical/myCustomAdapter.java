@@ -22,10 +22,30 @@ public class myCustomAdapter  extends RecyclerView.Adapter<myCustomViewHolder> {
         this.list_objects=list_objects;
     }
 
-    public myCustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customlayout,parent,false);
-        myCustomViewHolder holder=new myCustomViewHolder(view);
-        return holder;
+    @Override
+    public int getItemViewType(int position) {
+
+        String username = list_objects.get(position).getName();
+        String description = list_objects.get(position).getDescription();
+
+        if (username.charAt(username.length() - 1) != '7') {
+            return 0;
+        }
+        return 1;
+    }
+
+    @Override
+    public myCustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View view;
+        if (viewType == 0) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.new_layout, viewGroup, false);
+            return new myCustomViewHolder(view);
+        }
+        if (viewType == 1) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.customlayout, viewGroup, false);
+            return new myCustomViewHolder(view);
+        }
+        return null;
     }
 
     public void onBindViewHolder(myCustomViewHolder holder, int position){
@@ -54,6 +74,9 @@ public class myCustomAdapter  extends RecyclerView.Adapter<myCustomViewHolder> {
             }
         });
     }
+
+
+
 
     public int getItemCount(){
         return list_objects.size();
