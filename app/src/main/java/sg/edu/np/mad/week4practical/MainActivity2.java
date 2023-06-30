@@ -9,13 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
     String TAG = "Mobile";
-
-    DBHandler dbHandler=new DBHandler(this,null,null,1);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +29,6 @@ public class MainActivity2 extends AppCompatActivity {
         recvUsername = myRecvIntent.getStringExtra("username");
         recvUserDesc = myRecvIntent.getStringExtra("description");
         followed = myRecvIntent.getBooleanExtra("followed",true);
-
-
 
         Log.v(TAG, "username" + recvUsername);
         Log.v(TAG, "description" + recvUserDesc);
@@ -57,27 +51,16 @@ public class MainActivity2 extends AppCompatActivity {
             boolean followed;
             @Override
             public void onClick(View v) {
-                List<User> user=dbHandler.getUsers();
-                User account=new User();
 
-                for(int i=0;i<user.size();i++)
-                {
-                    if(recvUsername.equals(user.get(i).getName()))
-                    {
-                        account=user.get(i);
-                    }
-                }
                 Log.v(TAG,"Button A clicked");
                 if(followed)
                 {
                     buttonA.setText("UnFollow");
                     Toast.makeText(getApplicationContext(),"Followed",Toast.LENGTH_SHORT).show();
-                    dbHandler.updateUser(account);
                     followed=false;
                 }else{
                     buttonA.setText("Follow");
                     Toast.makeText(getApplicationContext(),"Unfollowed",Toast.LENGTH_SHORT).show();
-                    dbHandler.updateUser(account);
                     followed=true;
                 }
             }

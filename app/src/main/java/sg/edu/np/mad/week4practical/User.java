@@ -10,7 +10,7 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String username) {
         this.name = name;
     }
 
@@ -28,7 +28,7 @@ public class User {
         this.id = id;
     }
 
-    public boolean isFollowed() {return followed;}
+    public boolean getFollowed() {return followed;}
 
     public void setFollowed(boolean followed)
     {
@@ -40,9 +40,6 @@ public class User {
         this.description = description;
         this.id = id;
         this.followed = followed;
-    }
-
-    public User() {
     }
 }
 

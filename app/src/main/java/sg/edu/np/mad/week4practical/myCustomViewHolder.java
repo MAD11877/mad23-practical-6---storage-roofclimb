@@ -11,15 +11,7 @@ public class myCustomViewHolder extends RecyclerView.ViewHolder {
     ImageView img;
     public myCustomViewHolder(View itemView){
         super(itemView);
-        if(itemView.findViewById(R.id.textView6)==null)
-        {
-            txt=itemView.findViewById(R.id.textView);
-            img=itemView.findViewById(R.id.imageView2);
-        }
-        else{
-            txt=itemView.findViewById(R.id.textView6);
-            img=itemView.findViewById(R.id.imageView8);
-        }
-
+        txt=itemView.findViewById(R.id.textView);
+        img=itemView.findViewById(R.id.imageView);
     }
 }
