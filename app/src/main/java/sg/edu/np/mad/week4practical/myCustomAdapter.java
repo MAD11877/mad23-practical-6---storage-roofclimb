@@ -57,20 +57,8 @@ public class myCustomAdapter  extends RecyclerView.Adapter<myCustomViewHolder> {
 
             @Override
             public void onClick(View view) {
-                Log.v("Adapter","Image pressed");
-                Log.v("Adapter","Name: "+list_items.getName());
-                String last=list_items.getName().substring(list_items.getName().length() - 1);
-                Log.v("Adapter","Last character: "+last);
-                if(last.equals("7"))
-                {
-
-                    Log.v("Adapter","7");
-                }
-                else
-                {
-                    AlertDialog alert=list_items.getBuilder().create();
-                    alert.show();
-                }
+                AlertDialog alert=list_items.getBuilder().create();
+                alert.show();
             }
         });
     }
