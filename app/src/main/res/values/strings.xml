@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">week4practical</string>
+    <string name="button6">Follow</string>
+    <string name="button5">Message</string>
+    <string name="username">UserName</string>
+    <string name="description">Description</string>
+</resources>
