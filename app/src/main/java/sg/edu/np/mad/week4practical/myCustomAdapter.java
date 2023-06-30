@@ -25,9 +25,8 @@ public class myCustomAdapter  extends RecyclerView.Adapter<myCustomViewHolder> {
     @Override
     public int getItemViewType(int position) {
 
-        String username = list_objects.get(position).getName();
-        String description = list_objects.get(position).getDescription();
-
+        String username = list_objects.get(position).getUser().getName();
+        Log.v("Adapter","Username: "+username);
         if (username.charAt(username.length() - 1) != '7') {
             return 0;
         }
@@ -51,7 +50,7 @@ public class myCustomAdapter  extends RecyclerView.Adapter<myCustomViewHolder> {
     public void onBindViewHolder(myCustomViewHolder holder, int position){
         String TAG="View Holder";
         myObject list_items=list_objects.get(position);
-        holder.txt.setText(list_items.getName()+"\n"+list_items.getDescription());
+        holder.txt.setText(list_items.getUser().getName()+"\n"+list_items.getUser().getDescription());
 
         holder.img.setOnClickListener(new View.OnClickListener() {
 
